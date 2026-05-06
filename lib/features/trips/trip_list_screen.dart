@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'trip_provider.dart';
 import 'package:intl/intl.dart';
+import '../expenses/expense_provider.dart';
 
 class TripListScreen extends ConsumerWidget {
   const TripListScreen({super.key});
@@ -47,15 +48,11 @@ class TripListScreen extends ConsumerWidget {
             actions: [
               IconButton(
                 icon: const Icon(Icons.search, color: Colors.white),
-                onPressed: () {
-                  // TODO: Implement search
-                },
+                onPressed: () => context.push('/search'),
               ),
               IconButton(
                 icon: const Icon(Icons.filter_list, color: Colors.white),
-                onPressed: () {
-                  // TODO: Implement filter
-                },
+                onPressed: () => context.push('/search'),
               ),
             ],
           ),

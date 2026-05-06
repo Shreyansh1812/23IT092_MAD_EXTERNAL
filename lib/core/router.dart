@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import '../features/dashboard/dashboard_screen.dart';
 import '../features/trips/trip_list_screen.dart';
 import '../features/trips/create_trip_screen.dart';
+import '../features/search/search_filter_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -21,5 +22,10 @@ final appRouter = GoRouter(
         return DashboardScreen(tripId: id);
       },
     ),
+    GoRoute(
+      path: '/search',
+      builder: (context, state) => const SearchFilterScreen(),
+    ),
   ],
 );
+

@@ -62,4 +62,27 @@ class HiveStorageService {
       return ItineraryActivity.fromJson(map);
     }).toList();
   }
+
+  // --- Expenses ---
+  static Future<void> saveExpense(Expense expense) async {
+    await _expensesBox.put(expense.id, expense.toJson());
+  }
+
+  static Future<void> deleteExpense(String id) async {
+    await _expensesBox.delete(id);
+  }
+
+  static List<Expense> getAllExpenses() {
+    return _expensesBox.values.map((e) {
+      final map = Map<String, dynamic>.from(e as Map);
+      return Expense.fromJson(map);
+    }).toList();
+  }
+
+  static List<Expense> getExpenses(String tripId) {
+    return _expensesBox.values.map((e) {
+      final map = Map<String, dynamic>.from(e as Map);
+      return Expense.fromJson(map);
+    }).where((expense) => expense.tripId == tripId).toList();
+  }
 }
